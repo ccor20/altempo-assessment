@@ -5,6 +5,283 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>altempo</title>
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-Thin.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-ExtraLight.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-Light.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-Medium.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-SemiBold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-Black.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-ExtraBold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <!--  Inter Font -->
+    <link
+      rel="preload"
+      href="/fonts/Inter-Thin.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-ExtraLight.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-Light.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-Medium.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-SemiBold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-Black.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-Bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-ExtraBold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <style>
+      @font-face {
+        /* font-thin */
+        font-family: 'Montserrat';
+        src: url('/fonts/Montserrat-Thin.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 100;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-extralight */
+        font-family: 'Montserrat';
+        src: url('/fonts/Montserrat-ExtraLight.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 200;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-light */
+        font-family: 'Montserrat';
+        src: url('/fonts/Montserrat-Light.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 300;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-normal */
+        font-family: 'Montserrat';
+        src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-medium */
+        font-family: 'Montserrat';
+        src: url('/fonts/Montserrat-Medium.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 500;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-semibold */
+        font-family: 'Montserrat';
+        src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 600;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-bold */
+        font-family: 'Montserrat';
+        src: url('/fonts/Montserrat-Bold.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 700;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-extrabold */
+        font-family: 'Montserrat';
+        src: url('/fonts/Montserrat-ExtraBold.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 800;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-black */
+        font-family: 'Montserrat';
+        src: url('/fonts/Montserrat-Black.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 900;
+        font-style: normal;
+      }
+      /*  Inter font */
+      @font-face {
+        /* font-thin */
+        font-family: 'Inter';
+        src: url('/fonts/Inter-Thin.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 100;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-extralight */
+        font-family: 'Inter';
+        src: url('/fonts/Inter-ExtraLight.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 200;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-light */
+        font-family: 'Inter';
+        src: url('/fonts/Inter-Light.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 300;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-normal */
+        font-family: 'Inter';
+        src: url('/fonts/Inter-Regular.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-medium */
+        font-family: 'Inter';
+        src: url('/fonts/Inter-Medium.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 500;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-semibold */
+        font-family: 'Inter';
+        src: url('/fonts/Inter-SemiBold.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 600;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-bold */
+        font-family: 'Inter';
+        src: url('/fonts/Inter-Bold.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 700;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-extrabold */
+        font-family: 'Inter';
+        src: url('/fonts/Inter-ExtraBold.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 800;
+        font-style: normal;
+      }
+      @font-face {
+        /* font-black */
+        font-family: 'Inter';
+        src: url('/fonts/Inter-Black.ttf') format('truetype');
+        font-display: swap;
+        font-weight: 900;
+        font-style: normal;
+      }
+      body {
+        font-family: 'Montserrat', 'Arial', sans-serif;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
