@@ -1,5 +1,5 @@
-import { ViteReact } from '@/components'
+import { Signup } from '@/pages'
 
-const App: React.FC = () => <ViteReact />
+const App: React.FC = () => <Signup />
 
 export default App
