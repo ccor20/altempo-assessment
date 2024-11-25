@@ -1,5 +1,5 @@
-import { Signup } from '@/pages'
+import { ContractorProcess } from '@/pages'
 
-const App: React.FC = () => <Signup />
+const App: React.FC = () => <ContractorProcess />
 
 export default App

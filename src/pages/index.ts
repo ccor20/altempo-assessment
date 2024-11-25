@@ -1,1 +1,1 @@
-export { default as Signup } from './Signup'
+export { default as ContractorProcess } from './ContractorProcess'
