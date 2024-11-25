@@ -1,13 +1,11 @@
 import cn from 'classnames'
-import { Button } from '@/models'
+import { Button } from '@/components/types'
 import styles from '../styles'
 
-const OutlineButton: React.FC<Button> = ({ children, ...rest }) => {
-  return (
-    <button className={cn(styles, 'outline-button')} {...rest}>
-      {children}
-    </button>
-  )
-}
+const OutlineButton: React.FC<Button> = ({ children, className, ...rest }) => (
+  <button className={cn('outline-button', styles, className)} {...rest}>
+    {children}
+  </button>
+)
 
 export default OutlineButton
