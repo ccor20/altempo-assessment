@@ -1,5 +1,5 @@
 import { Layouts, Buttons, Stepper } from '@/components'
-import { SignupForm } from './components'
+import { Signup } from './components'
 import useContractorProcess from './hooks/useContractorProcess'
 
 import AltempoIcon from '@assets/icons/altempo.svg?react'
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
   )
 }
 
-const Signup: React.FC = () => {
+const ContractorProcess: React.FC = () => {
   const { contractorProcessSteps, nextStep, previousStep } =
     useContractorProcess({})
 
@@ -55,24 +55,11 @@ const Signup: React.FC = () => {
         <Layouts.NavbarFooterLayout
           navbarContent={<Navbar />}
           footerContent={<Footer />}
-          className="profile-form"
+          className="contractor-process"
         >
           <div>
             <Stepper steps={contractorProcessSteps} />
-            <div className="social-and-form">
-              <div className="social-login">
-                <span className="paragraph-base">Puedes registrarte con</span>
-                <div className="social-buttons">
-                  <Buttons.SocialButton social="facebook" />
-                  <Buttons.SocialButton social="google" />
-                  <Buttons.SocialButton social="apple" />
-                </div>
-                <span className="paragraph-base">
-                  O completa la siguiente información
-                </span>
-              </div>
-              <SignupForm onContinue={nextStep} onCancel={previousStep} />
-            </div>
+            <Signup onContinue={nextStep} onCancel={previousStep} />
           </div>
         </Layouts.NavbarFooterLayout>
       }
@@ -104,4 +91,4 @@ const Signup: React.FC = () => {
   )
 }
 
-export default Signup
+export default ContractorProcess
