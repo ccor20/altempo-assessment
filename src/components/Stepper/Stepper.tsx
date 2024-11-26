@@ -9,17 +9,20 @@ type Props = {
 }
 
 const Stepper: React.FC<Props> = ({ steps }) => {
+  const visibleSteps = steps.filter((step) => !step.hidden)
+
   return (
     <ol className={cn('stepper', styles)}>
-      {steps.map((step, index) => {
+      {visibleSteps.map((step, index) => {
         const currentOneIsCompleted = step.completed
         const nextOneIsNotActiveOrCompleted =
-          index < steps.length - 1 &&
-          !steps[index + 1].isActive &&
-          !steps[index + 1].completed
+          index < visibleSteps.length - 1 &&
+          !visibleSteps[index + 1].isActive &&
+          !visibleSteps[index + 1].completed
         const nextOneIsActiveOrCompleted =
-          index < steps.length - 1 &&
-          (steps[index + 1].isActive || steps[index + 1].completed)
+          index < visibleSteps.length - 1 &&
+          (visibleSteps[index + 1].isActive ||
+            visibleSteps[index + 1].completed)
 
         return (
           <React.Fragment key={index}>
@@ -51,7 +54,7 @@ const Stepper: React.FC<Props> = ({ steps }) => {
                 </div>
               </a>
             </li>
-            {index < steps.length - 1 && (
+            {index < visibleSteps.length - 1 && (
               <div
                 className={cn('relative', 'arrow-container', {
                   'is-active':

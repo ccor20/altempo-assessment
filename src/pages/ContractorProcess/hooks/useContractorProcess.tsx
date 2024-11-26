@@ -19,6 +19,15 @@ const contractorProcessStepsDefault: Step[] = [
     iconComponent: <SparklesIcon />,
     isActive: false,
     completed: false
+  },
+  {
+    id: 'ideal-service',
+    title: '',
+    description: '',
+    iconComponent: <></>,
+    isActive: false,
+    completed: false,
+    hidden: true
   }
 ]
 
@@ -114,17 +123,13 @@ const useContractorProcess = () => {
   }
 
   const onFinishInterestPreferences = () => {
-    const draftCompletedSteps = getDraftForCompletedStep(
-      contractorProcessSteps,
-      contractorProcessSteps[currentStepIndex].id
-    )
-
-    setContractorProcessSteps(draftCompletedSteps)
+    nextStep()
   }
 
   return {
     contractorProcessSteps,
     currentStepIndex,
+    currentStep: contractorProcessSteps[currentStepIndex],
     isThereAPreviousStep,
     isThereANextStep,
     nextStep,

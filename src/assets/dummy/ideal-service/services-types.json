@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "name": "atmosphere",
+    "description": "Presentaciones en vivo y ambientación musical",
+    "imageUrl": "/img/ideal-service/find-ideal-service/atmosphere.webp"
+  },
+  {
+    "id": 1,
+    "name": "consulting",
+    "description": "Consultoría de desarrollo de carreras artísticas",
+    "imageUrl": "/img/ideal-service/find-ideal-service/consulting.webp"
+  },
+  {
+    "id": 2,
+    "name": "music-production",
+    "description": "Producción musical y Dirección artística para proyectos empresariales",
+    "imageUrl": "/img/ideal-service/find-ideal-service/music-production.webp"
+  },
+  {
+    "id": 3,
+    "name": "audiovisual-production",
+    "description": "Producción de contenido audiovisual para redes sociales, jingles y marketing musical",
+    "imageUrl": "/img/ideal-service/find-ideal-service/audiovisual-production.webp"
+  },
+  {
+    "id": 4,
+    "name": "consultancy-and-curation",
+    "description": "Asesoría y curaduría musical para proyectos audiovisuales y espacios corporativos",
+    "imageUrl": "/img/ideal-service/find-ideal-service/consultancy-and-curation.webp"
+  },
+  {
+    "id": 5,
+    "name": "collaborations",
+    "description": "Colaboraciones artísticas y musicales",
+    "imageUrl": "/img/ideal-service/find-ideal-service/collaborations.webp"
+  }
+]

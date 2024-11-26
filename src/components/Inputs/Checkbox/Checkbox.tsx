@@ -19,7 +19,7 @@ const Checkbox: React.FC<Props> = ({
   className,
   onChange
 }) => (
-  <label className={cn('checkbox', styles, className)}>
+  <label className={cn('checkbox', styles, className, { checked })}>
     <div
       className={cn('custom-checkbox', {
         checked,

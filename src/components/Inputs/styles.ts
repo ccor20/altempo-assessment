@@ -3,6 +3,10 @@ import { css } from '@linaria/core'
 const styles = css`
   @apply w-full;
 
+  &.disabled {
+    @apply opacity-50;
+  }
+
   .input-wrapper {
     @apply relative w-full h-14;
   }

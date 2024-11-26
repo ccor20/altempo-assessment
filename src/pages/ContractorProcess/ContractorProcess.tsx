@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { Layouts, Buttons, Stepper } from '@/components'
-import { InterestPreferences, Signup } from './components'
+import { IdealService, InterestPreferences, Signup } from './components'
 import useContractorProcess from './hooks/useContractorProcess'
 
 import AltempoIcon from '@assets/icons/altempo.svg?react'
@@ -49,6 +49,7 @@ const ContractorProcess: React.FC = () => {
   const {
     contractorProcessSteps,
     currentStepIndex,
+    currentStep,
     nextStep,
     previousStep,
     onFinishInterestPreferences
@@ -60,6 +61,14 @@ const ContractorProcess: React.FC = () => {
     switch (currentStep.id) {
       case 'interests':
         return <InterestPreferences onFinish={onFinishInterestPreferences} />
+      case 'ideal-service':
+        return (
+          <IdealService
+            onFinish={() => {
+              console.log('ideal-service finished')
+            }}
+          />
+        )
       case 'signup':
       default:
         return <Signup onContinue={nextStep} onCancel={previousStep} />
@@ -76,7 +85,9 @@ const ContractorProcess: React.FC = () => {
           className="contractor-process"
         >
           <div>
-            <Stepper steps={contractorProcessSteps} />
+            {currentStep.id !== 'ideal-service' && (
+              <Stepper steps={contractorProcessSteps} />
+            )}
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentStepIndex}
@@ -95,7 +106,7 @@ const ContractorProcess: React.FC = () => {
       rightChild={
         <div className="right-child">
           <div className="video-card">
-            <img src={SignupImg} alt="sign-up" />
+            <img src={SignupImg} alt="sign-up" loading="lazy" />
             <div className="card-items">
               <div className="items">
                 <Buttons.OutlineButton className="video-play-button">

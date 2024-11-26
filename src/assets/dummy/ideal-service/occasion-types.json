@@ -1,0 +1,44 @@
+[
+  {
+    "id": 0,
+    "name": "birthday",
+    "description": "Cumpleaños",
+    "imageUrl": "/img/ideal-service/occasion-type/birthday.webp"
+  },
+  {
+    "id": 1,
+    "name": "wedding",
+    "description": "Boda",
+    "imageUrl": "/img/ideal-service/occasion-type/wedding.webp"
+  },
+  {
+    "id": 2,
+    "name": "corporate-event",
+    "description": "Evento corporativo",
+    "imageUrl": "/img/ideal-service/occasion-type/corporate-event.webp"
+  },
+  {
+    "id": 3,
+    "name": "private-event",
+    "description": "Evento privado",
+    "imageUrl": "/img/ideal-service/occasion-type/private-event.webp"
+  },
+  {
+    "id": 4,
+    "name": "festival-or-concert",
+    "description": "Festival o concierto",
+    "imageUrl": "/img/ideal-service/occasion-type/festival-or-concert.webp"
+  },
+  {
+    "id": 5,
+    "name": "dinner",
+    "description": "Cena",
+    "imageUrl": "/img/ideal-service/occasion-type/dinner.webp"
+  },
+  {
+    "id": 6,
+    "name": "other",
+    "description": "Otro",
+    "imageUrl": "/img/ideal-service/occasion-type/other.webp"
+  }
+]

@@ -9,9 +9,10 @@ const Text: React.FC<Input> = ({
   error,
   className,
   type,
+  disabled,
   ...rest
 }) => (
-  <div className={cn(styles, 'text', className)}>
+  <div className={cn(styles, 'text', className, { disabled })}>
     <div className="input-wrapper">
       <input
         {...rest}
@@ -21,6 +22,7 @@ const Text: React.FC<Input> = ({
           'is-optional': optional
         })}
         type={type}
+        disabled={disabled}
       />
       <label className="input-label">
         {label}
