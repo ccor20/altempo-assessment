@@ -1,40 +1,41 @@
 import { useState } from 'react'
-import UserStarIcon from '@assets/icons/user-star.svg?react'
-import SparklesIcon from '@assets/icons/sparkles.svg?react'
-import { Step } from '@/components/types'
+import { InterestPreferencesStep } from '@/types'
 
-const contractorProcessStepsDefault: Step[] = [
+const interestPreferencesStepsDefault: InterestPreferencesStep[] = [
   {
-    id: 'signup',
-    title: 'Datos generales',
-    description: 'Comparte tus datos de contacto',
-    iconComponent: <UserStarIcon />,
+    id: 'contractor-type',
+    // COMMENT: consider sentences with inclusive terms
+    title: '¿Qué estás interesado en encontrar?',
     isActive: true,
     completed: false
   },
   {
-    id: 'interests',
-    title: 'Intereses',
-    description: 'Nos gustaría mostrarte lo que te interesa',
-    iconComponent: <SparklesIcon />,
+    id: 'important-characteristics',
+    title: '¿Qué consideras importante en los músicos que buscas?',
+    isActive: false,
+    completed: false
+  },
+  {
+    id: 'budget',
+    title: '¿Cuál es tu presupuesto?',
     isActive: false,
     completed: false
   }
 ]
 
-const useContractorProcess = () => {
-  const [contractorProcessSteps, setContractorProcessSteps] = useState<Step[]>(
-    contractorProcessStepsDefault
-  )
+const useInterestPreferencesSteps = () => {
+  const [interestPreferencesSteps, setInterestPreferencesSteps] = useState<
+    InterestPreferencesStep[]
+  >(interestPreferencesStepsDefault)
   const [currentStepIndex, setCurrentStepIndex] = useState<number>(0)
   const [isThereAPreviousStep, setIsThereAPreviousStep] =
     useState<boolean>(false)
   const [isThereANextStep, setIsThereANextStep] = useState<boolean>(true)
 
   const getDrafForActivatedStep = (
-    currentSteps: Step[],
+    currentSteps: InterestPreferencesStep[],
     stepId: string
-  ): Step[] => {
+  ): InterestPreferencesStep[] => {
     const newSteps = currentSteps.map((step) => {
       if (step.id === stepId) {
         return {
@@ -53,9 +54,9 @@ const useContractorProcess = () => {
   }
 
   const getDraftForCompletedStep = (
-    currentSteps: Step[],
+    currentSteps: InterestPreferencesStep[],
     stepId: string
-  ): Step[] => {
+  ): InterestPreferencesStep[] => {
     const newSteps = currentSteps.map((step) => {
       if (step.id === stepId) {
         return {
@@ -71,17 +72,17 @@ const useContractorProcess = () => {
   }
 
   const nextStep = () => {
-    if (currentStepIndex === contractorProcessSteps.length - 1) {
+    if (currentStepIndex === interestPreferencesSteps.length - 1) {
       console.error('No more steps available')
       setIsThereANextStep(false)
       return
     }
 
     const newStepIndex = currentStepIndex + 1
-    const currentStep = contractorProcessSteps[currentStepIndex]
-    const nextStep = contractorProcessSteps[newStepIndex]
+    const currentStep = interestPreferencesSteps[currentStepIndex]
+    const nextStep = interestPreferencesSteps[newStepIndex]
     const draftCompletedSteps = getDraftForCompletedStep(
-      contractorProcessSteps,
+      interestPreferencesSteps,
       currentStep.id
     )
     const draftActivatedSteps = getDrafForActivatedStep(
@@ -89,9 +90,9 @@ const useContractorProcess = () => {
       nextStep.id
     )
 
-    setContractorProcessSteps(draftActivatedSteps)
+    setInterestPreferencesSteps(draftActivatedSteps)
     setCurrentStepIndex(newStepIndex)
-    setIsThereANextStep(newStepIndex < contractorProcessSteps.length - 1)
+    setIsThereANextStep(newStepIndex < interestPreferencesSteps.length - 1)
   }
 
   const previousStep = () => {
@@ -102,20 +103,21 @@ const useContractorProcess = () => {
     }
 
     const newStepIndex = currentStepIndex - 1
-    const previousStep = contractorProcessSteps[newStepIndex]
+    const previousStep = interestPreferencesSteps[newStepIndex]
     const draftActivatedSteps = getDrafForActivatedStep(
-      contractorProcessSteps,
+      interestPreferencesSteps,
       previousStep.id
     )
 
-    setContractorProcessSteps(draftActivatedSteps)
+    setInterestPreferencesSteps(draftActivatedSteps)
     setCurrentStepIndex(currentStepIndex - 1)
     setIsThereAPreviousStep(newStepIndex > 0)
   }
 
   return {
-    contractorProcessSteps,
+    interestPreferencesSteps,
     currentStepIndex,
+    currentStep: interestPreferencesSteps[currentStepIndex],
     isThereAPreviousStep,
     isThereANextStep,
     nextStep,
@@ -123,4 +125,4 @@ const useContractorProcess = () => {
   }
 }
 
-export default useContractorProcess
+export default useInterestPreferencesSteps

@@ -24,6 +24,18 @@ const Stepper: React.FC<Props> = ({ steps }) => {
         return (
           <React.Fragment key={index}>
             <li className="step" onClick={step.onClick}>
+              <div
+                className="step-background transition-colors"
+                style={{
+                  backgroundColor: step.completed ? '#f0e9ff' : '#f6f7f9'
+                }}
+              />
+              <div
+                className="step-background gradient-background transition-opacity"
+                style={{
+                  opacity: step.isActive && !step.completed ? 1 : 0
+                }}
+              />
               <a
                 className={cn('body', {
                   'is-active': step.isActive && !step.completed,
@@ -41,7 +53,7 @@ const Stepper: React.FC<Props> = ({ steps }) => {
             </li>
             {index < steps.length - 1 && (
               <div
-                className={cn('arrow-container', {
+                className={cn('relative', 'arrow-container', {
                   'is-active':
                     currentOneIsCompleted &&
                     !nextOneIsNotActiveOrCompleted &&
@@ -49,6 +61,26 @@ const Stepper: React.FC<Props> = ({ steps }) => {
                   completed: currentOneIsCompleted && nextOneIsActiveOrCompleted
                 })}
               >
+                <div
+                  className="step-background transition-colors"
+                  style={{
+                    backgroundColor:
+                      currentOneIsCompleted && nextOneIsActiveOrCompleted
+                        ? '#f0e9ff'
+                        : '#f6f7f9'
+                  }}
+                />
+                <div
+                  className="step-background gradient-background transition-opacity"
+                  style={{
+                    opacity:
+                      currentOneIsCompleted &&
+                      !nextOneIsNotActiveOrCompleted &&
+                      !(currentOneIsCompleted && nextOneIsActiveOrCompleted)
+                        ? 1
+                        : 0
+                  }}
+                />
                 <RightArrowIcon />
               </div>
             )}

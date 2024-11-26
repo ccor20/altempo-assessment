@@ -4,20 +4,27 @@ const styles = css`
   @apply flex flex-col items-stretch;
 
   @screen md {
-    @apply flex-row space-y-0;
-    /* Asegura que el contenedor principal sea un flex container con stretch */
-    min-height: 0; /* Importante para Firefox */
+    @apply flex-row space-y-0 min-h-0;
+  }
+
+  .step-background {
+    @apply absolute inset-0 duration-500;
+
+    &.gradient-background {
+      background: linear-gradient(to bottom, #f0e9ff, #f6f7f9);
+
+      @screen md {
+        background: linear-gradient(to right, #f0e9ff, #f6f7f9);
+      }
+    }
   }
 
   & .step {
-    @apply flex flex-1;
-
-    /* Importante: estas propiedades aseguran que el contenido se estire correctamente */
-    min-height: 0; /* Para Firefox */
-    min-width: 0; /* Previene desbordamiento en flex items */
+    @apply relative flex flex-1 min-h-0 min-w-0;
 
     &:first-child {
-      & .body {
+      & .body,
+      & .step-background {
         @apply rounded-l-none rounded-t-xl;
 
         @screen md {
@@ -27,7 +34,8 @@ const styles = css`
     }
 
     &:last-child {
-      & .body {
+      & .body,
+      & .step-background {
         @apply rounded-r-none rounded-b-xl;
 
         @screen md {
@@ -37,7 +45,7 @@ const styles = css`
     }
 
     & .body {
-      @apply flex flex-1 items-start font-medium px-4 py-5 w-full bg-[#F6F7F9] gap-2;
+      @apply flex flex-1 items-start font-medium px-4 py-5 w-full gap-2 z-10;
 
       &.is-active,
       &.completed {
@@ -56,20 +64,9 @@ const styles = css`
         }
       }
 
-      &.is-active {
-        background: linear-gradient(to bottom, #f0e9ff, #f6f7f9);
-
-        @screen md {
-          background: linear-gradient(to right, #f0e9ff, #f6f7f9);
-        }
-      }
-
-      &.completed {
-        @apply bg-[#f0e9ff];
-      }
-
       & .icon {
-        @apply flex justify-center items-center aspect-square bg-white w-8 h-8 border border-[#EDEEF1] rounded-md;
+        @apply flex justify-center items-center aspect-square bg-white w-8 h-8 
+                border border-[#EDEEF1] rounded-md transition-all;
       }
 
       & .content {
@@ -87,19 +84,9 @@ const styles = css`
   }
 
   & .arrow-container {
-    @apply flex items-center justify-center bg-[#F6F7F9] min-w-10;
-
-    &.is-active {
-      background: linear-gradient(to bottom, #f0e9ff, #f6f7f9);
-
-      @screen md {
-        background: linear-gradient(to right, #f0e9ff, #f6f7f9);
-      }
-    }
+    @apply flex items-center justify-center min-w-10;
 
     &.completed {
-      @apply bg-[#f0e9ff];
-
       & > svg {
         & > path {
           @apply stroke-[#7505E0];
@@ -115,7 +102,7 @@ const styles = css`
       }
 
       & > path {
-        @apply stroke-[#B4BAC5];
+        @apply stroke-[#B4BAC5] transition-all;
       }
     }
   }

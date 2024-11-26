@@ -99,6 +99,10 @@ const styles = css`
             }
           }
         }
+
+        & .motion-div {
+          @apply flex flex-col w-full h-full;
+        }
       }
     }
 

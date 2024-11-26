@@ -170,7 +170,11 @@ const styles = css`
 
     .month-nav-btn {
       @apply p-1 rounded-lg hover:bg-[rgba(117,5,224,0.05)]
-              text-[#18243E] transition-colors duration-200;
+              transition-colors duration-200;
+
+      & > svg > path {
+        @apply stroke-[#18243E];
+      }
     }
 
     .current-month {
@@ -207,6 +211,34 @@ const styles = css`
 
       &.other-month {
         @apply opacity-50;
+      }
+    }
+  }
+
+  &.search {
+    & .input-wrapper {
+      height: unset;
+
+      & .prefix-icon {
+        @apply absolute inset-y-0 left-3 flex items-center pointer-events-none;
+
+        & > svg {
+          @apply h-6 w-6;
+
+          & > path {
+            @apply stroke-[#B4BAC5];
+          }
+        }
+      }
+
+      & > input {
+        @apply h-full w-full py-3 pl-12 pr-4 text-gray-700 bg-gray-50 rounded-xl 
+                outline-none transition-shadow duration-200 ease-in-out 
+                placeholder-[#888FA8];
+
+        &:focus {
+          @apply ring-1 ring-purple-100 bg-white;
+        }
       }
     }
   }

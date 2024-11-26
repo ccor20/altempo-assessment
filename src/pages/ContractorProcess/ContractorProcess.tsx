@@ -1,5 +1,6 @@
+import { motion, AnimatePresence } from 'framer-motion'
 import { Layouts, Buttons, Stepper } from '@/components'
-import { Signup } from './components'
+import { InterestPreferences, Signup } from './components'
 import useContractorProcess from './hooks/useContractorProcess'
 
 import AltempoIcon from '@assets/icons/altempo.svg?react'
@@ -45,8 +46,21 @@ const Footer: React.FC = () => {
 }
 
 const ContractorProcess: React.FC = () => {
-  const { contractorProcessSteps, nextStep, previousStep } =
-    useContractorProcess({})
+  const { contractorProcessSteps, currentStepIndex, nextStep, previousStep } =
+    useContractorProcess()
+
+  const getCurrentStepComponent = () => {
+    const currentStep = contractorProcessSteps[currentStepIndex]
+
+    switch (currentStep.id) {
+      case 'signup':
+        return <Signup onContinue={nextStep} onCancel={previousStep} />
+      case 'interests':
+        return <InterestPreferences />
+      default:
+        return <Signup onContinue={nextStep} onCancel={previousStep} />
+    }
+  }
 
   return (
     <Layouts.TwoColumnsLayout
@@ -59,7 +73,18 @@ const ContractorProcess: React.FC = () => {
         >
           <div>
             <Stepper steps={contractorProcessSteps} />
-            <Signup onContinue={nextStep} onCancel={previousStep} />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentStepIndex}
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -20, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="motion-div"
+              >
+                {getCurrentStepComponent()}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </Layouts.NavbarFooterLayout>
       }
