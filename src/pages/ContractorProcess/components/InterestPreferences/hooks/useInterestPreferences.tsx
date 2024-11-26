@@ -86,6 +86,9 @@ const importantCharacteristics: SelectOption[] = [
   }
 ]
 
+const maxBudgetRange = 75
+const minBudgetRange = 6
+
 const useInterestPreferences = () => {
   const [contractorTypesSelected, setContractorTypesSelected] = useState<
     string[]
@@ -95,6 +98,10 @@ const useInterestPreferences = () => {
     setImportantCharacteristicsSelected
   ] = useState<string[]>([])
   const [yourGoal, setYourGoal] = useState<string>('')
+  const [budgetRange, setBudgetRange] = useState<number[]>([
+    minBudgetRange,
+    minBudgetRange * 3
+  ])
 
   const handleSelectedContractorTypes = (contractorId: string) => {
     if (contractorTypesSelected.includes(contractorId)) {
@@ -123,15 +130,23 @@ const useInterestPreferences = () => {
     setYourGoal(goal)
   }
 
+  const handleBudgetRange = (range: number[]) => {
+    setBudgetRange(range)
+  }
+
   return {
     contractorTypesSelected,
     contractorTypeOptions,
     importantCharacteristics,
     importantCharacteristicsSelected,
     yourGoal,
+    budgetRange,
+    maxBudgetRange,
+    minBudgetRange,
     handleSelectedContractorTypes,
     handleSelectedImportantCharacteristics,
-    handleYourGoal
+    handleYourGoal,
+    handleBudgetRange
   }
 }
 

@@ -19,7 +19,8 @@ const interestPreferencesStepsDefault: InterestPreferencesStep[] = [
     id: 'budget',
     title: '¿Cuál es tu presupuesto?',
     isActive: false,
-    completed: false
+    completed: false,
+    isOptional: true
   }
 ]
 

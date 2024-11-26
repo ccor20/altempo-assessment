@@ -22,9 +22,13 @@ const InterestPreferences: React.FC<Props> = () => {
     importantCharacteristics,
     importantCharacteristicsSelected,
     yourGoal,
+    budgetRange,
+    maxBudgetRange,
+    minBudgetRange,
     handleSelectedContractorTypes,
     handleSelectedImportantCharacteristics,
-    handleYourGoal
+    handleYourGoal,
+    handleBudgetRange
   } = useInterestPreferences()
 
   const getCurrentStepComponent = () => {
@@ -43,7 +47,15 @@ const InterestPreferences: React.FC<Props> = () => {
           />
         )
       case 'budget':
-        return <Budget contractorTypeStep={currentStep} />
+        return (
+          <Budget
+            contractorTypeStep={currentStep}
+            budgetRange={budgetRange}
+            maxBudgetRange={maxBudgetRange}
+            minBudgetRange={minBudgetRange}
+            handleBudgetRange={handleBudgetRange}
+          />
+        )
       case 'contractor-type':
       default:
         return (
@@ -55,6 +67,15 @@ const InterestPreferences: React.FC<Props> = () => {
           />
         )
     }
+  }
+
+  const getNextButtonLabel = () => {
+    if (currentStepIndex === interestPreferencesSteps.length - 1) {
+      if (currentStep.isOptional) return 'Omitir y buscar servicio ideal'
+
+      return 'Buscar servicio ideal'
+    }
+    return currentStep.isOptional ? 'Omitir' : 'Continuar'
   }
 
   return (
@@ -91,7 +112,7 @@ const InterestPreferences: React.FC<Props> = () => {
           type="button"
           onClick={nextStep}
         >
-          <span className="paragraph-base">Continuar</span>
+          <span className="paragraph-base">{getNextButtonLabel()}</span>
         </Buttons.DefaultButton>
       </div>
     </div>

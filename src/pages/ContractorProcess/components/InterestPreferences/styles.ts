@@ -39,7 +39,7 @@ const styles = css`
     }
 
     & > button {
-      @apply px-4 py-3 w-32;
+      @apply px-4 py-3 min-w-32;
 
       &:first-child {
         @apply border-[#B4BAC5];

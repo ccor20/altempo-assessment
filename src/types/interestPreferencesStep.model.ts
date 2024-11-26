@@ -3,4 +3,5 @@ export interface InterestPreferencesStep {
   title: string
   isActive: boolean
   completed: boolean
+  isOptional?: boolean
 }
