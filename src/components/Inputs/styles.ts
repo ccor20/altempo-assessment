@@ -242,6 +242,34 @@ const styles = css`
       }
     }
   }
+
+  &.text-area {
+    .input-wrapper {
+      @apply h-[unset];
+    }
+
+    .input-field {
+      @apply pt-4 text-xs;
+    }
+
+    & .limit-messages-container {
+      @apply flex flex-col justify-center items-end pt-1;
+
+      & > span {
+        @apply text-xs;
+      }
+
+      .counter {
+        &.completed {
+          @apply text-red-500;
+        }
+      }
+
+      .limit-error {
+        @apply text-red-500;
+      }
+    }
+  }
 `
 
 export default styles

@@ -32,7 +32,11 @@ const styles = css`
   }
 
   & .actions {
-    @apply flex items-end justify-end gap-2 mt-2 h-full;
+    @apply flex items-end justify-end gap-2 mt-2;
+
+    @screen lg {
+      @apply h-full;
+    }
 
     & > button {
       @apply px-4 py-3 w-32;

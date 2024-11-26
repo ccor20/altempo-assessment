@@ -19,13 +19,29 @@ const InterestPreferences: React.FC<Props> = () => {
   const {
     contractorTypeOptions,
     contractorTypesSelected,
-    handleSelectedContractorTypes
+    importantCharacteristics,
+    importantCharacteristicsSelected,
+    yourGoal,
+    handleSelectedContractorTypes,
+    handleSelectedImportantCharacteristics,
+    handleYourGoal
   } = useInterestPreferences()
 
   const getCurrentStepComponent = () => {
     switch (currentStep.id) {
       case 'important-characteristics':
-        return <ImportantCharacteristics contractorTypeStep={currentStep} />
+        return (
+          <ImportantCharacteristics
+            contractorTypeStep={currentStep}
+            importantCharacteristics={importantCharacteristics}
+            importantCharacteristicsSelected={importantCharacteristicsSelected}
+            yourGoal={yourGoal}
+            handleSelectedImportantCharacteristics={
+              handleSelectedImportantCharacteristics
+            }
+            handleYourGoal={handleYourGoal}
+          />
+        )
       case 'budget':
         return <Budget contractorTypeStep={currentStep} />
       case 'contractor-type':

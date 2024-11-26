@@ -24,7 +24,7 @@ const RadioCard: React.FC<Props> = ({
     className={cn(styles, 'radio-card', { selected, disabled }, className)}
   >
     <div className={cn('check-icon', { selected })}>
-      <ChevronCheckIcon className="w-4 h-4 text-white" />
+      <ChevronCheckIcon />
     </div>
     {children}
   </div>

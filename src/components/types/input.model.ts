@@ -11,6 +11,9 @@ export interface TextArea
   extends React.HTMLProps<HTMLTextAreaElement>,
     InputProps {
   label: string
+  value: string
+  characterLimit?: number
+  onChange: (value: string) => void
 }
 
 export interface SelectOption {
