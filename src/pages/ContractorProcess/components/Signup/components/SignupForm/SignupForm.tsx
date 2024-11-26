@@ -88,8 +88,6 @@ const SignupForm: React.FC<Props> = ({ onContinue, onCancel }) => {
             />
             <Inputs.Date
               label="Fecha de nacimiento"
-              // id="birthday"
-              // name="birthday"
               onChange={onChangeDate}
               value={user?.birthday}
               error={requiredFieldsErrors?.birthday}

@@ -5,9 +5,11 @@ import useInterestPreferencesSteps from './hooks/useInterestPreferencesSteps'
 import useInterestPreferences from './hooks/useInterestPreferences'
 import styles from './styles'
 
-type Props = {}
+type Props = {
+  onFinish: () => void
+}
 
-const InterestPreferences: React.FC<Props> = () => {
+const InterestPreferences: React.FC<Props> = ({ onFinish }) => {
   const {
     interestPreferencesSteps,
     currentStepIndex,
@@ -78,6 +80,11 @@ const InterestPreferences: React.FC<Props> = () => {
     return currentStep.isOptional ? 'Omitir' : 'Continuar'
   }
 
+  const nextButtonAction = () => {
+    if (currentStepIndex === interestPreferencesSteps.length - 1) onFinish()
+    else nextStep()
+  }
+
   return (
     <div className={styles}>
       <div className="preferences-steps">
@@ -100,17 +107,19 @@ const InterestPreferences: React.FC<Props> = () => {
         </AnimatePresence>
       </div>
       <div className="actions">
-        <Buttons.OutlineButton
-          className="cancel-button"
-          type="button"
-          onClick={previousStep}
-        >
-          <span className="paragraph-base">Regresar</span>
-        </Buttons.OutlineButton>
+        {currentStepIndex > 0 && (
+          <Buttons.OutlineButton
+            className="cancel-button"
+            type="button"
+            onClick={previousStep}
+          >
+            <span className="paragraph-base">Regresar</span>
+          </Buttons.OutlineButton>
+        )}
         <Buttons.DefaultButton
           className="next-button"
           type="button"
-          onClick={nextStep}
+          onClick={nextButtonAction}
         >
           <span className="paragraph-base">{getNextButtonLabel()}</span>
         </Buttons.DefaultButton>

@@ -46,17 +46,21 @@ const Footer: React.FC = () => {
 }
 
 const ContractorProcess: React.FC = () => {
-  const { contractorProcessSteps, currentStepIndex, nextStep, previousStep } =
-    useContractorProcess()
+  const {
+    contractorProcessSteps,
+    currentStepIndex,
+    nextStep,
+    previousStep,
+    onFinishInterestPreferences
+  } = useContractorProcess()
 
   const getCurrentStepComponent = () => {
     const currentStep = contractorProcessSteps[currentStepIndex]
 
     switch (currentStep.id) {
-      case 'signup':
-        return <Signup onContinue={nextStep} onCancel={previousStep} />
       case 'interests':
-        return <InterestPreferences />
+        return <InterestPreferences onFinish={onFinishInterestPreferences} />
+      case 'signup':
       default:
         return <Signup onContinue={nextStep} onCancel={previousStep} />
     }

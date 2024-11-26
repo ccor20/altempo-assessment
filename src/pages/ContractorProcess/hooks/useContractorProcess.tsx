@@ -113,13 +113,23 @@ const useContractorProcess = () => {
     setIsThereAPreviousStep(newStepIndex > 0)
   }
 
+  const onFinishInterestPreferences = () => {
+    const draftCompletedSteps = getDraftForCompletedStep(
+      contractorProcessSteps,
+      contractorProcessSteps[currentStepIndex].id
+    )
+
+    setContractorProcessSteps(draftCompletedSteps)
+  }
+
   return {
     contractorProcessSteps,
     currentStepIndex,
     isThereAPreviousStep,
     isThereANextStep,
     nextStep,
-    previousStep
+    previousStep,
+    onFinishInterestPreferences
   }
 }
 
