@@ -15,7 +15,7 @@ const styles = css`
     & .options-container {
       @apply grid grid-cols-1 gap-x-8 gap-y-4;
 
-      @screen lg {
+      @screen md {
         @apply grid-cols-2;
       }
 

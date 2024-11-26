@@ -34,12 +34,16 @@ const styles = css`
   & .actions {
     @apply flex items-end justify-end gap-2 mt-2;
 
-    @screen lg {
+    @screen md {
       @apply h-full;
     }
 
     & > button {
-      @apply px-4 py-3 min-w-32;
+      @apply px-4 py-3 min-w-32 max-w-40;
+
+      @screen md {
+        @apply max-w-[unset];
+      }
 
       &:first-child {
         @apply border-[#B4BAC5];
@@ -50,7 +54,7 @@ const styles = css`
       }
 
       & > span {
-        @apply font-medium text-accent-950;
+        @apply font-medium text-accent-950 truncate;
       }
     }
   }

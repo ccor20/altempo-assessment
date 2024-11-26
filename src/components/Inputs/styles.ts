@@ -23,7 +23,7 @@ const styles = css`
 
   .input-label {
     @apply absolute left-3 top-4 text-base text-[#18243E] opacity-50
-            transition-all duration-200 pointer-events-none;
+            transition-all duration-200 pointer-events-none max-w-[80%] truncate;
     transform-origin: 0 0;
 
     .optional-text {
