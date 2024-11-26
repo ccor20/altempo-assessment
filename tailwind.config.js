@@ -111,28 +111,28 @@ export default {
           '@apply font-montserrat text-h_4 font-bold': {}
         },
         '.heading-5': {
-          '@apply font-inter text-h_5 font-semibold': {}
+          '@apply font-montserrat text-h_5 font-semibold': {}
         },
         '.heading-6': {
-          '@apply font-inter text-h_6': {}
+          '@apply font-montserrat text-h_6': {}
         },
         '.paragraph-xl': {
-          '@apply font-inter text-p_xl': {}
+          '@apply font-montserrat text-p_xl': {}
         },
         '.paragraph-lg': {
-          '@apply font-inter text-p_lg': {}
+          '@apply font-montserrat text-p_lg': {}
         },
         '.paragraph-base': {
-          '@apply font-inter text-p_base': {}
+          '@apply font-montserrat text-p_base': {}
         },
         '.paragraph-sm': {
-          '@apply font-inter text-p_sm': {}
+          '@apply font-montserrat text-p_sm': {}
         },
         '.paragraph-xs': {
-          '@apply font-inter text-p_xs': {}
+          '@apply font-montserrat text-p_xs': {}
         },
         '.paragraph-tiny': {
-          '@apply font-inter text-p_tiny': {}
+          '@apply font-montserrat text-p_tiny': {}
         }
       })
     })
